@@ -6,10 +6,10 @@ function Home() {
   const [isDeleting, setIsDeleting] = useState(false)
 
   const texts = [
-    "Taking robots from 99% to 99.99999% reliability",
-    "Solving the long-tail problem in robotics", 
-    "Training autonomous systems for the impossible",
-    "Building the data layer for safer robots"
+    "The $35T physical labor economy. Starting with end-of-line packaging",
+    "One robot for many tasks: case packing to palletizing", 
+    "Deploy in hours. Scale across lines and SKUs",
+    "24/7 reliability, built for the factory floor"
   ]
 
   useEffect(() => {
@@ -37,22 +37,29 @@ function Home() {
 
   return (
     <main className="flex flex-grow flex-col items-center justify-center px-6 text-center">
+      {/* Badge */}
+      <div className="mb-3 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+        <span className="px-3 py-1 rounded-full border border-cyan-400/30 bg-cyan-400/10 text-cyan-300 text-xs md:text-sm font-medium">
+          Starting with End-of-Line Packaging
+        </span>
+      </div>
+
       {/* Main heading */}
-      <h1 className="text-6xl md:text-8xl font-black mb-6 tracking-tighter text-white animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+      <h1 className="text-6xl md:text-8xl font-black mb-6 tracking-tighter animate-fade-in-up bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent" style={{ animationDelay: '0.2s' }}>
         SynthRails
       </h1>
 
       {/* Tagline */}
-      <p className="text-xl md:text-2xl text-gray-400 mb-16 max-w-2xl font-light animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-        Advanced physics-based AI simulations for Robotics
+      <p className="text-xl md:text-2xl text-gray-300 mb-16 max-w-3xl font-light leading-relaxed mx-auto animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+        We build <span className="text-white font-semibold">general-purpose robots</span> for the <span className="text-white font-semibold">$35T physical labor economy</span>. Starting with <span className="text-white font-semibold">end-of-line packaging</span>.
       </p>
 
       {/* Animated text section */}
       <div className="mb-20 h-16 flex items-center justify-center w-full animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-        <div className="text-lg md:text-xl text-gray-300 font-mono">
+        <div className="text-xl md:text-2xl font-semibold tracking-tight bg-gradient-to-r from-cyan-300 via-sky-300 to-indigo-300 bg-clip-text text-transparent">
           <span className="inline-block w-full max-w-lg text-center">
             {currentText}
-            <span className="animate-blink text-gray-600">|</span>
+            <span className="animate-blink text-cyan-400/60">|</span>
           </span>
         </div>
       </div>
