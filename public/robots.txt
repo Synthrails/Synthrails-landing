@@ -1,0 +1,34 @@
+# Synthrails — archival exclusion
+# Note: robots.txt is advisory. To actually remove pages from the
+# Internet Archive, email info@archive.org from a synthrails.com address.
+
+# Internet Archive / Wayback Machine
+User-agent: ia_archiver
+Disallow: /
+
+User-agent: ia_archiver-web.archive.org
+Disallow: /
+
+User-agent: archive.org_bot
+Disallow: /
+
+User-agent: Wayback
+Disallow: /
+
+# Archive.today and friends
+User-agent: archive.today
+Disallow: /
+
+User-agent: ArchiveTeam
+Disallow: /
+
+User-agent: ArchiveBot
+Disallow: /
+
+# Common Crawl (often a feeder for archives and LLM training sets)
+User-agent: CCBot
+Disallow: /
+
+# Allow general-purpose search engines so the site stays discoverable
+User-agent: *
+Allow: /

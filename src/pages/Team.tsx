@@ -1,125 +1,187 @@
-import { useEffect } from "react";
-import { HiOutlineSparkles } from "react-icons/hi";
+const founders = [
+    {
+        name: "Abhinav Reddy Palle",
+        role: "CEO",
+        image: "https://zwive.s3.us-west-1.amazonaws.com/founder+images/Abhinav.JPG",
+        bio: "Founded QuickSight, where he trained vision-language models for long-form video understanding. Previously engineering at Waymo, Intuitive Surgical, and Flexport. MS Computer Science, UC Riverside.",
+        linkedin: "https://www.linkedin.com/in/abhinavreddy-palle/",
+    },
+    {
+        name: "Luella Fu",
+        role: "Chief Scientist",
+        image: "https://zwive.s3.us-west-1.amazonaws.com/founder+images/Luella.jpeg",
+        bio: "Tenured Associate Professor of Statistics at SFSU. Hands-on with model training. Her research on large-scale inference is the methodology behind how we evaluate generalization in our policies. PhD Statistics, USC. MS Yale.",
+        linkedin: "https://www.linkedin.com/in/luella-fu-9575551b/",
+    },
+];
+
+const engineering = [
+    {
+        name: "David Jo",
+        role: "ML Intern",
+        school: "UC Berkeley",
+    },
+    {
+        name: "Aiden Man",
+        role: "Mechanical Engineering Intern",
+        school: "UC Berkeley",
+    },
+];
+
+const openRoles = [
+    {
+        title: "Founding ML Engineer",
+        body: "Train policies end-to-end. Own the data pipeline and the evaluation loop.",
+    },
+    {
+        title: "Founding Robotics Engineer",
+        body: "Get models running on real hardware in real environments. Firmware, integration, on-robot debugging.",
+    },
+];
+
+const initials = (name: string) =>
+    name
+        .split(" ")
+        .map((n) => n[0])
+        .slice(0, 2)
+        .join("");
 
 const Team = () => {
-    useEffect(() => {
-        // Placeholder for future logging if needed
-        // logEvent("page_view", { ... });
-    }, []);
-
-    const founders = [
-        {
-            name: "Abhinav Reddy Palle",
-            role: "CEO & Co-Founder",
-            image: "https://zwive.s3.us-west-1.amazonaws.com/founder+images/Abhinav.JPG",
-            experience: "Software Engineer at Waymo, Google, Flexport",
-            education: "MS Computer Science, UCR",
-            linkedin: "https://www.linkedin.com/in/abhinavreddy-palle/",
-        },
-        {
-            name: "Luella Fu",
-            role: "CTO & Co-Founder",
-            image: "https://zwive.s3.us-west-1.amazonaws.com/founder+images/Luella.jpeg",
-            experience: "Tenured Professor SFSU • Ex-Meta",
-            education: "PhD Statistics USC • MS Yale",
-            linkedin: "https://www.linkedin.com/in/luella-fu-9575551b/",
-        },
-    ];
-
     return (
-        <main className="flex-grow">
-            {/* Hero Section */}
-            <div className="relative overflow-hidden pt-24 pb-16">
-                <div className="container mx-auto px-6 relative">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <div className="mb-8">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800/50 text-gray-300 text-sm font-medium border border-gray-700">
-                                <HiOutlineSparkles className="w-5 h-5" />
-                                Meet Our Team
-                            </div>
-                        </div>
-
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-                            World-Class AI Team
-                        </h1>
-
-                        <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8 leading-relaxed">
-                            Engineers from Waymo, Google, and Meta combined with
-                            tenured research expertise from USC and Yale.
-                        </p>
+        <div>
+            {/* Hero */}
+            <section className="max-w-6xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-20">
+                <div className="max-w-4xl">
+                    <div className="text-xs uppercase tracking-[0.16em] text-stone-500 font-semibold mb-4">
+                        Team
                     </div>
+                    <h1 className="text-5xl md:text-7xl font-semibold tracking-[-0.035em] leading-[1.02] text-stone-900">
+                        Team.
+                    </h1>
+                    <p className="mt-8 text-lg md:text-xl text-stone-600 leading-relaxed max-w-2xl">
+                        Two co-founders. Both of us train the models. One
+                        came up doing autonomy engineering at scale, the
+                        other researching the mathematical foundations of
+                        AI. Interpretable robot foundation models need
+                        both: structured representations the system can
+                        reason over, and rigorous methods for proving the
+                        reasoning works.
+                    </p>
                 </div>
-            </div>
+            </section>
 
-            {/* Founders Section */}
-            <div className="py-16">
-                <div className="container mx-auto px-6">
-                    <div className="grid md:grid-cols-2 gap-20 max-w-5xl mx-auto">
-                        {founders.map((founder, index) => (
-                            <div key={index} className="text-center">
-                                <div className="mb-8">
-                                    <img
-                                        src={founder.image}
-                                        alt={founder.name}
-                                        className="w-56 h-56 rounded-full mx-auto object-cover border-4 border-gray-800 shadow-lg"
-                                    />
-                                </div>
-                                <h2 className="text-3xl font-bold text-white mb-2">
+            {/* Founders */}
+            <section className="border-t border-stone-200">
+                <div className="max-w-6xl mx-auto px-6 py-20 md:py-24">
+                    <div className="text-xs uppercase tracking-[0.16em] text-stone-500 font-semibold mb-12">
+                        Founders
+                    </div>
+                    <div className="grid md:grid-cols-2 gap-14 md:gap-20 max-w-5xl">
+                        {founders.map((founder) => (
+                            <div key={founder.name} className="flex flex-col">
+                                <img
+                                    src={founder.image}
+                                    alt={founder.name}
+                                    className="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover mb-7"
+                                />
+                                <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-stone-900">
                                     {founder.name}
                                 </h2>
-                                <div className="text-xl text-gray-400 mb-4">
+                                <div className="text-sm text-stone-500 mt-1">
                                     {founder.role}
                                 </div>
-                                <div className="text-lg text-gray-500 mb-6 leading-relaxed max-w-md mx-auto">
-                                    <p className="mb-2">{founder.experience}</p>
-                                    <p className="text-gray-400">
-                                        {founder.education}
-                                    </p>
-                                </div>
+                                <p className="mt-5 text-stone-600 leading-relaxed max-w-md">
+                                    {founder.bio}
+                                </p>
                                 <a
                                     href={founder.linkedin}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gray-800 text-white rounded-lg font-medium hover:bg-gray-700 transition-colors"
+                                    className="mt-6 inline-flex items-center gap-1.5 text-sm text-stone-900 font-medium hover:text-stone-600 transition-colors"
                                 >
-                                    <svg
-                                        className="w-5 h-5"
-                                        fill="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                                    </svg>
                                     LinkedIn
+                                    <span aria-hidden>→</span>
                                 </a>
                             </div>
                         ))}
                     </div>
                 </div>
-            </div>
+            </section>
 
-            {/* CTA Section */}
-            <div className="pb-24">
-                <div className="container mx-auto px-6">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <h2 className="text-4xl font-bold text-white mb-6">
-                            Ready to Build the Future?
-                        </h2>
-                        <p className="text-xl text-gray-400 mb-10">
-                            Let's discuss how we can accelerate the future of
-                            robotics together.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a
-                                href="mailto:abhinav@quicksight.ai"
-                                className="inline-block px-10 py-4 text-base font-bold text-gray-300 rounded-lg border border-gray-600 hover:bg-white hover:text-gray-950 transition-all duration-300 transform hover:scale-105"
+            {/* Engineering */}
+            <section className="border-t border-stone-200">
+                <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
+                    <div className="text-xs uppercase tracking-[0.16em] text-stone-500 font-semibold mb-10">
+                        Engineering
+                    </div>
+                    <div className="grid sm:grid-cols-2 gap-6 max-w-3xl">
+                        {engineering.map((person) => (
+                            <div
+                                key={person.name}
+                                className="flex items-center gap-4 p-5 rounded-2xl border border-stone-200 bg-white"
                             >
-                                Get in Touch
-                            </a>
-                        </div>
+                                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center text-sm font-semibold">
+                                    {initials(person.name)}
+                                </div>
+                                <div className="min-w-0">
+                                    <div className="text-base font-semibold text-stone-900 truncate">
+                                        {person.name}
+                                    </div>
+                                    <div className="text-sm text-stone-500 whitespace-nowrap">
+                                        {person.role}
+                                    </div>
+                                    <div className="text-xs text-stone-400 mt-0.5">
+                                        {person.school}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
-            </div>
-        </main>
+            </section>
+
+            {/* Hiring */}
+            <section className="border-t border-stone-200 bg-stone-900 text-white">
+                <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
+                    <div className="max-w-3xl">
+                        <div className="text-xs uppercase tracking-[0.16em] text-stone-400 font-semibold mb-4">
+                            Hiring
+                        </div>
+                        <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.025em] text-white leading-[1.1]">
+                            We're building our founding team.
+                        </h2>
+
+                        <div className="mt-10 space-y-5">
+                            {openRoles.map((role) => (
+                                <div
+                                    key={role.title}
+                                    className="rounded-2xl border border-stone-700 bg-stone-800/40 p-6"
+                                >
+                                    <div className="text-base font-semibold text-white">
+                                        {role.title}
+                                    </div>
+                                    <p className="mt-2 text-stone-300 leading-relaxed">
+                                        {role.body}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+
+                        <p className="mt-8 text-stone-300 leading-relaxed">
+                            Or write to us if you think you should be here.
+                        </p>
+
+                        <a
+                            href="mailto:abhinav@synthrails.com"
+                            className="mt-8 inline-flex items-center gap-1.5 px-5 py-3 rounded-full bg-white text-stone-900 text-sm font-medium hover:bg-stone-200 transition-colors"
+                        >
+                            Get in touch
+                            <span aria-hidden>→</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
     );
 };
 

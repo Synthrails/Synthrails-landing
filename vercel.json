@@ -1,1 +1,13 @@
-{ "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }] }
+{
+  "rewrites": [
+    { "source": "/((?!.*\\.).*)", "destination": "/" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noarchive, noimageindex" }
+      ]
+    }
+  ]
+}
